@@ -13,3 +13,12 @@ function ModelCanvas({ src, v }) {
     <model-viewer ref=${ref} src=${src} auto-rotate="" camera-controls="" camera-orbit=${'45deg 65deg ' + Math.round(v.cameraDistance * 11) + '%'} class="h-full w-full"></model-viewer>
     ${pct < 100 && html`<${PercentBar} pct=${pct}/>`}</div>`;
 }
+
+function LiveMetrics({ v, api }) {
+  const [d, setD] = useState(null);
+  useEffect(() => { const load = () => fetch(`${api}/api/videos/${v.id}/live-data`).then(r => r.json()).then(setD).catch(() => {});
+    load(); const t = setInterval(load, 30000); return () => clearInterval(t); }, []);
+  return html`<div class="mt-3 rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-xs backdrop-blur">
+    <div class="font-semibold text-emerald-300"><i class="fa-solid fa-chart-simple mr-1"></i>Live video metrics</div>
+    <div class="mt-1 flex gap-4">${d ? html`<span>▶ ${d.plays} plays</span><span>🔖 ${d.bookmarks} bookmarks</span><span>🎙 ${d.sessions} AI sessions</span>` : 'Syncing…'}</div></div>`;
+}
