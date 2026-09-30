@@ -1,0 +1,17 @@
+{
+ "name": "microservice-tv",
+ "version": "1.0.0",
+ "private": true,
+ "scripts": {
+  "models": "node scripts/gen-glb.js",
+  "dev": "node api/index.js",
+  "build:web": "flutter build web --release && cp -r build/web/. public/"
+ },
+ "dependencies": {
+  "express": "^4.19.2",
+  "sequelize": "^6.37.3",
+  "pg": "^8.11.5",
+  "sqlite3": "^5.1.7",
+  "agora-token": "^2.0.4"
+ }
+}
