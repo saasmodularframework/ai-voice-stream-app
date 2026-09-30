@@ -1,7 +1,5 @@
 import '../models/video_item.dart';
 
-/// Bundled scene list (mirrors data/videos.json) used when the API is unreachable.
-/// Replace REPLACE_* with real Vimeo ids.
 const fallbackVideos = <VideoItem>[
   VideoItem(id: 'vimeo_id01', title: 'Microservices: the big picture', context: 'Decomposing a monolith into independently deployable services.', category: 'Fundamentals', icon: 'fa-cubes', type: '3d',
     fact: 'Netflix runs on hundreds of microservices, each owned by a small team.', cameraDistance: 9,
