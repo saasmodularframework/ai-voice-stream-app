@@ -1,1 +1,10 @@
 #pubspec.yaml
+name: microservice_tv
+publish_to: none
+environment: {sdk: ">=3.3.0 <4.0.0"}
+dependencies:
+  flutter: {sdk: flutter}
+  dio: ^5.4.0
+  web: ^1.0.0
+  shared_preferences: ^2.2.3
+flutter: {uses-material-design: true}
